@@ -1,39 +1,77 @@
+import { motion } from 'framer-motion';
+import { Briefcase, Calendar } from 'lucide-react';
+
+const ExperienceCard = ({ company, position, date, description, delay }) => (
+  <motion.div
+    className="bg-opacity-10 bg-white backdrop-blur-lg rounded-xl p-6 shadow-xl border border-gray-700"
+    initial={{ opacity: 0, x: -50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.5, delay }}
+    whileHover={{ scale: 1.02 }}
+  >
+    <div className="flex items-center mb-4">
+      <Briefcase className="w-6 h-6 text-blue-500 mr-3" />
+      <h3 className="text-2xl font-semibold gradient-text">{company}</h3>
+    </div>
+    <div className="flex items-center text-gray-400 mb-4">
+      <Calendar className="w-4 h-4 mr-2" />
+      <span>{date}</span>
+    </div>
+    <p className="text-lg text-gray-300 italic mb-4">{position}</p>
+    <ul className="space-y-2">
+      {description.map((item, index) => (
+        <motion.li
+          key={index}
+          className="text-gray-300"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: delay + 0.1 * index }}
+        >
+          • {item}
+        </motion.li>
+      ))}
+    </ul>
+  </motion.div>
+);
 
 const Experience = () => {
+  const experiences = [
+    {
+      company: "Apponward Technologies",
+      position: "Remote Backend Engineer",
+      date: "Oct '23 - Dec '23",
+      description: [
+        "Demonstrated expertise in leveraging Django REST Framework to design, develop, and maintain robust APIs.",
+        "Implemented authentication, serialization, and viewsets to create scalable and efficient web APIs.",
+        "Experienced in developing RESTful APIs using Python, focusing on high-quality, well-documented endpoints."
+      ]
+    },
+    {
+      company: "Katyayani Organics",
+      position: "Remote Backend Engineer",
+      date: "Sep '24 - Oct '24",
+      description: [
+        "Leveraged Flask and FastAPI to design, develop, and maintain scalable web applications and APIs.",
+        "Designed and optimized PostgreSQL databases to ensure data integrity and efficient query performance.",
+        "Implemented containerization with Docker for consistent environments across development, testing, and production."
+      ]
+    }
+  ];
+
   return (
-    <section id="experience" className="min-h-screen flex flex-col items-center bg-gradient-to-b from-blue-100 to-white py-16 px-4">
-      <h2 className="text-4xl font-bold text-black mb-8">Experience</h2>
-
-      <div className="max-w-4xl space-y-10">
-        
-        {/* Apponward Technologies Experience */}
-        <div className="bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
-          <h3 className="text-2xl font-semibold text-black">Apponward Technologies</h3>
-          <p className="text-lg text-gray-700 italic">Remote Backend Engineer | Oct ’23 - Dec ’23</p>
-          <ul className="mt-2 text-gray-700 list-disc list-inside space-y-2">
-            <li>
-              <strong>Proficient in Django REST Framework:</strong> Demonstrated expertise in leveraging Django REST Framework to design, develop, and maintain robust APIs. Implemented authentication, serialization, and viewsets to create scalable and efficient web APIs.
-            </li>
-            <li>
-              <strong>Skilled API Developer:</strong> Experienced in developing RESTful APIs using Python, focusing on high-quality, well-documented endpoints. Designed API schemas, handled request/response formats, and integrated third-party services to meet business requirements effectively.
-            </li>
-          </ul>
-        </div>
-
-        {/* Katyayani Organics Experience */}
-        <div className="bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
-          <h3 className="text-2xl font-semibold text-black">Katyayani Organics</h3>
-          <p className="text-lg text-gray-700 italic">Remote Backend Engineer | Sep ’24 - Oct ’24</p>
-          <ul className="mt-2 text-gray-700 list-disc list-inside space-y-2">
-            <li>
-              <strong>Proficient in Flask and FastAPI:</strong> Leveraged Flask and FastAPI to design, develop, and maintain scalable web applications and APIs, including implementing middleware, request handling, and asynchronous programming for enhanced performance.
-            </li>
-            <li>
-              <strong>PostgreSQL Database Management & Docker Containerization:</strong> Designed and optimized PostgreSQL databases to ensure data integrity and efficient query performance. Wrote complex SQL queries, implemented indexing strategies, and performed database migrations. Additionally, proficient in containerizing applications with Docker for consistent environments across development, testing, and production.
-            </li>
-          </ul>
-        </div>
-
+    <section id="experience" className="min-h-screen flex flex-col items-center py-20 px-4">
+      <motion.h2 
+        className="text-4xl font-bold mb-12 gradient-text"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Experience
+      </motion.h2>
+      <div className="max-w-4xl space-y-8">
+        {experiences.map((exp, index) => (
+          <ExperienceCard key={exp.company} {...exp} delay={index * 0.3} />
+        ))}
       </div>
     </section>
   );
