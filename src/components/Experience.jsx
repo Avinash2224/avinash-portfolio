@@ -55,6 +55,17 @@ const Experience = () => {
         "Designed and optimized PostgreSQL databases to ensure data integrity and efficient query performance.",
         "Implemented containerization with Docker for consistent environments across development, testing, and production."
       ]
+    },
+    {
+      company: "Realevo Datatek",
+      position: "Remote Python Developer",
+      date: "Nov’24 - Jan’25",
+      description: [
+        "Developed and implemented web scraping solutions using Beautiful Soup to extract data from multiple websites.Collected, cleaned, and structured data to ensure accuracy and consistency.",
+        "Delivered the processed data in CSV format, enabling seamless integration with machine learning models for further analysis and predictive modeling.",
+        "Demonstrated proficiency in handling large datasets, optimizing data retrieval processes, and adhering to best practices for efficient web scraping.",
+        "Collaborated with cross-functional teams to align data extraction and pro-cessing with project requirements, showcasing strong problem-solving and analytical skills in a fast-paced environment"
+      ]
     }
   ];
 
