@@ -45,12 +45,14 @@ const Projects = () => {
       ]
     },
     {
-      title: "Web Scraper",
+      title: "AI Image Generation Website",
       description: [
-        "Developed a web scraper to extract and aggregate data from target websites",
-        "Utilized Beautiful Soup for parsing HTML and Requests for making HTTP requests",
-        "Employed Pandas for data manipulation and storage",
-        "Implemented data cleaning and periodic scraping using scheduling libraries"
+        "Developed an AI image generation website using the MERN stack.",
+        "Integrated OpenAI API for image generation functionality.",
+        "Utilized Cloudinary for efficient image storage and management.",
+        "Implemented responsive UI using React.js for seamless user experience.",
+        "Enabled real-time image generation with backend APIs built in Node.js and Express.",
+        "Ensured smooth deployment and scaling with Heroku and cloud services"
       ]
     }
   ];
