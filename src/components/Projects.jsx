@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { Code, Globe } from 'lucide-react';
+import { Bot, Heart, ShoppingCart } from 'lucide-react';
 
-const ProjectCard = ({ title, description, delay }) => (
+const ProjectCard = ({ title, description, techStack, icon: Icon, delay }) => (
   <motion.div
     className="bg-opacity-10 bg-white backdrop-blur-lg rounded-xl p-6 shadow-xl border border-gray-700"
     initial={{ opacity: 0, y: 50 }}
@@ -10,12 +10,11 @@ const ProjectCard = ({ title, description, delay }) => (
     whileHover={{ scale: 1.05 }}
   >
     <div className="flex items-center mb-4">
-      {title.includes('Editor') ? (
-        <Code className="w-6 h-6 text-blue-500 mr-3" />
-      ) : (
-        <Globe className="w-6 h-6 text-blue-500 mr-3" />
-      )}
-      <h3 className="text-2xl font-semibold gradient-text">{title}</h3>
+      <Icon className="w-6 h-6 text-blue-500 mr-3" />
+      <div>
+        <h3 className="text-2xl font-semibold gradient-text">{title}</h3>
+        <p className="text-sm text-blue-400 font-medium mt-1">{techStack}</p>
+      </div>
     </div>
     <ul className="space-y-2">
       {description.map((item, index) => (
@@ -36,23 +35,33 @@ const ProjectCard = ({ title, description, delay }) => (
 const Projects = () => {
   const projects = [
     {
-      title: "Frontend Code Editor",
+      title: "AI-powered Educational Platform",
+      techStack: "Python, FastAPI, React, LangChain, Docker, AWS",
+      icon: Bot,
       description: [
-        "Leveraged React.js to design and develop a feature-rich frontend code editor",
-        "Provided users with a seamless platform for writing, editing, and testing code in real-time",
-        "Implemented syntax highlighting, code completion, and live preview",
-        "Added keyboard shortcuts, customizable themes, and collaborative editing"
+        "Developed full-stack educational platform with React frontend and Python FastAPI backend, implementing REST APIs with comprehensive test automation using Jest and API testing frameworks",
+        "Engineered AI-powered RAG chatbot using LangChain and integrated automated testing workflows for educational content processing, ensuring reliable query responses and practice question generation",
+        "Containerized application with Docker and deployed on AWS EC2 with S3 integration, implementing role-based access control, JWT authentication, and automated deployment pipelines"
       ]
     },
     {
-      title: "AI Image Generation Website",
+      title: "Healthcare Appointment & Analytics System",
+      techStack: "React, Node.js, Django, Celery, Redis, GCP",
+      icon: Heart,
       description: [
-        "Developed an AI image generation website using the MERN stack.",
-        "Integrated OpenAI API for image generation functionality.",
-        "Utilized Cloudinary for efficient image storage and management.",
-        "Implemented responsive UI using React.js for seamless user experience.",
-        "Enabled real-time image generation with backend APIs built in Node.js and Express.",
-        "Ensured smooth deployment and scaling with Heroku and cloud services"
+        "Built full-stack healthcare platform with React Native frontend and Django backend, implementing comprehensive API testing and automated workflows for appointment management and medical records",
+        "Integrated real-time notifications using Celery, Redis, and WebSockets with automated testing for notification delivery systems, improving patient engagement by 25% through reliable communication channels",
+        "Deployed on Google Cloud Platform with Docker containerization and Kubernetes orchestration, ensuring HIPAA-compliant data storage with automated testing for security compliance"
+      ]
+    },
+    {
+      title: "Scalable E-commerce Marketplace",
+      techStack: "Node.js, React, Express.js, Kafka, Redis, AWS EKS",
+      icon: ShoppingCart,
+      description: [
+        "Architected microservices-based e-commerce platform using Node.js and Express.js with React frontend, implementing comprehensive API testing suite using Jest and automated deployment workflows",
+        "Developed real-time inventory tracking system with Kafka and Redis Streams, integrating automated testing for event-driven workflows and reducing overselling errors by 40% through reliable automation",
+        "Deployed on AWS EKS with Kubernetes orchestration and Docker containerization, implementing CI/CD pipelines with GitHub Actions, automated testing, and monitoring for handling 10K+ concurrent users"
       ]
     }
   ];

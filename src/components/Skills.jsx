@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code2, Database, Globe, Terminal } from 'lucide-react';
+import { Code2, Database, Globe, Terminal, Cloud, Bot, TestTube } from 'lucide-react';
 
 const SkillCard = ({ title, skills, icon: Icon, delay }) => (
   <motion.div
@@ -21,23 +21,38 @@ const Skills = () => {
   const skillsData = [
     {
       title: 'Programming Languages',
-      skills: ['Python', 'Java', 'C', 'C++', 'JavaScript', 'TypeScript'],
+      skills: ['Python', 'Java', 'JavaScript', 'C++', 'C', 'SQL'],
       icon: Code2,
     },
     {
-      title: 'Web Development',
-      skills: ['HTML', 'CSS', 'Tailwind', 'ReactJS', 'Node.js', 'Express.js', 'PHP'],
+      title: 'Frontend Technologies',
+      skills: ['React', 'Redux', 'AngularJS', 'HTML5', 'CSS3'],
       icon: Globe,
     },
     {
-      title: 'Technologies',
-      skills: ['GitHub', 'Linux', 'Excel', 'Docker'],
+      title: 'Backend Technologies',
+      skills: ['Flask', 'FastAPI', 'Node.js', 'REST APIs', 'GraphQL'],
       icon: Terminal,
     },
     {
       title: 'Databases',
-      skills: ['MongoDB', 'MySQL', 'PostgreSQL'],
+      skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis'],
       icon: Database,
+    },
+    {
+      title: 'Cloud & DevOps',
+      skills: ['AWS', 'Azure', 'GCP', 'Docker', 'Kubernetes', 'OpenShift', 'Linux'],
+      icon: Cloud,
+    },
+    {
+      title: 'Testing & Automation',
+      skills: ['Jest', 'Cypress', 'API Testing', 'Test Automation', 'Ansible'],
+      icon: TestTube,
+    },
+    {
+      title: 'AI/ML Frameworks',
+      skills: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'Pandas', 'NumPy', 'LangChain'],
+      icon: Bot,
     },
   ];
 
@@ -51,9 +66,9 @@ const Skills = () => {
       >
         Skills & Expertise
       </motion.h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
         {skillsData.map((skill, index) => (
-          <SkillCard key={skill.title} {...skill} delay={index * 0.2} />
+          <SkillCard key={skill.title} {...skill} delay={index * 0.15} />
         ))}
       </div>
     </section>
